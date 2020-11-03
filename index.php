@@ -49,6 +49,7 @@ if (isset($_SESSION['info'])) {
             echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
         } else {
             echo "<li><a href='index.php?action=login'>Login</a></li>";
+            echo "<li><a href='index.php?action=creation'>Créer votre compte</a></li>";
         }
         ?>
     </ul>
@@ -73,6 +74,6 @@ if (isset($_SESSION['info'])) {
             ?>
 
 
-<footer>Le pied de page</footer>
+<footer>Le pied de page #pied #foot #footer #developpeur</footer>
 </body>
 </html>
