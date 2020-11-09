@@ -1,2 +1,1 @@
-Bienvenu sur la page 2 du super site.
-
+Ceci sera la page de ton profil plus tard, donc attend
