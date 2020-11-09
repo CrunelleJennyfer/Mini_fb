@@ -21,6 +21,6 @@ if($line==FALSE){
 else {
     $_SESSION['id']=$line['id'];
     $_SESSION['login']=$line['login'];
-    header("location:page2.php");
+    header("location:vues/page2.php");
 }
 ?>
