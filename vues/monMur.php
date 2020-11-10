@@ -121,3 +121,73 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
         <input type="submit" name="poster" class="sub" value=">">
     </form>
 </div>
+
+
+<div> <!-- appel la comme tu veux c'est la gestion d'ami demande+liste ami-->
+    <div> <!-- appel la comme tu veux c'est la demande d'ami -->
+        <div id="mid">
+            <h1>Rechercher un kiwi</h1>
+            <div class="search">
+                <?php
+                if(isset($_POST['search'])){
+                    $sql = "SELECT * FROM user WHERE login LIKE concat('%',?,'%')";
+                    $query = $pdo->prepare($sql);
+                    $query->execute(array($_POST["search"]));
+                    while($line = $query->fetch()){
+                        $sql = "SELECT * FROM lien WHERE (idUtilisateur1=? AND idUtilisateur2=?)"; //manque peut etre untruc
+                        $query2 = $pdo->prepare($sql);
+                        $query2->execute(array($_SESSION['id'],$line["id"])); // manque peut etre des truc
+                        $etat = $query2->fetch();
+                        if($etat == false || $etat['etat'] != 'banni'){
+                            if($line['id'] != $_SESSION['id']){
+                                echo "<a href=index.php?action=monMur&id=".$line['id'].">".$line['login']."</a>";
+                                if($etat == false){
+                                    echo "<form action='index.php?action=demandeAmi' method='POST'>
+                                                <input type='hidden' name='id' value=".$line['id'].">
+                                                <input type='submit' class='boutAdd' value='Envoyer'>
+                                        </form>";
+                                }else{
+                                    echo "</br>";
+                                }
+                            }
+                        }
+                    }
+                }
+                ?>
+            </div>
+            
+        </div>
+        <form action="#" method="POST">
+            <input type="search" name="search" class="search">
+            <input type="submit" value=">" class="searchValid">
+        </form>
+
+        <div> <!-- appel la comme tu veux c'est pour la liste d'ami-->
+        </div>
+    </div>
+
+    <div><!-- appel la comme tu veux c'est la liste d'amis avec suppr ami-->
+        <h1>T'a liste de kiwi</h1>
+        <div class="ami">
+            <?php
+                $id = $_SESSION['id'];
+                $sql = "SELECT * FROM user 
+                WHERE id IN ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id 
+                                AND etat='ami' AND idUTilisateur2=? UNION SELECT user.id FROM user 
+                                INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUTilisateur1=?) 
+                order by user.login ASC";
+                $query = $pdo->prepare($sql);
+                $query->execute(array($_SESSION["id"],$_SESSION["id"])); //2 $_SESSION["id"] c'est normal... sinon foncionne pas
+                while($line = $query->fetch()){
+                    echo "<div class='boutDiv'>
+                                <a href='index.php?action=monMur&id".$line['id'].">".$line['login']."</a>
+                                <form action='index.php?action=supprAmi' method='POST'>
+                                        <input type='hidden' name='id' value=".$line['id'].">
+                                        <input type='submit' name='boutDel' value='Supprimer'>
+                                </form>
+                        </div>";
+                }
+            ?>
+        </div>
+    </div>
+</div>
