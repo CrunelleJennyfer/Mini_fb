@@ -8,7 +8,10 @@ $listeDesActions = array(
     "deconnexion" => "traitement/deconnexion.php",
     "creation" => "vues/creation.php",
     "crea" => "traitement/creation.php",
-    "monMur" => "vues/monMur.php"
+    "monMur" => "vues/monMur.php",
+    "demandeAmi" => "traitement/demandeAmi.php",
+    "supprPost" => "traitement/supprPost.php",
+    "nouvPost" => "traitement/nouvPost.php"
 );
 
 ?>
