@@ -3,12 +3,12 @@
 
 $listeDesActions = array(
     "accueil" => "vues/accueil.php",
-    "page2" => "vues/page2.php",
     "login" => "vues/login.php",
     "connexion" => "traitement/connexion.php",
     "deconnexion" => "traitement/deconnexion.php",
     "creation" => "vues/creation.php",
-    "crea" => "traitement/creation.php"
+    "crea" => "traitement/creation.php",
+    "monMur" => "vues/monMur.php"
 );
 
 ?>
