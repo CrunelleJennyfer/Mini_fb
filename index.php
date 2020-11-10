@@ -18,7 +18,6 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     <title>KiwiOn</title>
 
 
-  
 
     <!-- Ma feuille de style à moi -->
     <link href="./css/style.css" rel="stylesheet">
@@ -30,8 +29,7 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
 
 <?php
 if (isset($_SESSION['info'])) {
-    echo "<div>
-          <strong>Information : </strong> " . $_SESSION['info'] . "</div>";
+    echo "<div><strong>Information : </strong> " . $_SESSION['info'] . "</div>";
     unset($_SESSION['info']);
 }
 ?>
@@ -42,8 +40,6 @@ if (isset($_SESSION['info'])) {
 </header>
 <nav>
     <ul>
-        <li><a href="index.php?action=page2">Va voir la page 2</a></li>
-
         <?php
         if (isset($_SESSION['id'])) {
             echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
