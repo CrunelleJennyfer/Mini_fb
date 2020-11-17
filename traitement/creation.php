@@ -18,7 +18,7 @@ if (!isset($_POST['login']) || !isset($_POST['mdp']) || !isset($_POST['email']))
 
         $_SESSION['id'] = $pdo->lastInsertId();
         $_SESSION['login'] = $_POST['login'];
-        header("Location:index.php");
+        header("Location:index.php?action=monMur");
     }
 }
 ?>

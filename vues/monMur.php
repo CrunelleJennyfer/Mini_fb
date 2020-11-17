@@ -191,3 +191,38 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
         </div>
     </div>
 </div>
+
+<div>
+    <div> <!-- bouton pour retourner page mon mur-->
+        <?php
+            echo "<form action='index.php?action=monMur' method='post'>
+                        <input type='hidden' name='id' value=".$_SESSION['id'].">
+                        <input type='submit' class='buttonMur' value='Mon mur'>
+                </form>";
+        ?>
+    </div>
+
+    <div> <!-- gestion demande ami -->
+        <h1>Invitation</h1>
+        <?php
+            $sql="SELECT user.* FROM user INNER JOIN lien ON user.id=idUtilisateur2 
+                AND etat='attente' AND idUtilisateur1=? order by user.login ASC";
+            $query=$pdo->prepare($sql);
+            $query->execute(array($_SESSION['id']));
+            while($line=$query->fetch()){
+                echo "<div> 
+                        <a href=index.php?action=mur&id=".$line['id'].">".$line['login']."</a>
+                        <form action='index.php?action=accepter' method='post'>
+                            <input type='hidden' name='id' value=".$line['id'].">
+                            <iput type='submit' class='buttonAccept' value='Accepter'>
+                        </form>
+                        
+                        <form action='index.php?action=refuser' method='post'>
+                            <input type='hidden' name='id' value=".$line['id'].">
+                            <input type='submit' class='buttonRefus' value='Refuser'>
+                        </form>
+                    </div> ";
+            }
+        ?>
+    </div>
+</div>
