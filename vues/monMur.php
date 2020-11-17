@@ -57,7 +57,6 @@ if($ok==false){
 
     }
 
-    //manque affichage mur select * from ecrit where idami=? oder by dateEcrit
 
 
 }
