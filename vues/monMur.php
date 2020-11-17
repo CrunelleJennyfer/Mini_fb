@@ -5,7 +5,7 @@ if(!isset($_SESSION["id"])){
     header("Location:index.php?action=login");
 }
 
-//afficher notre ur ou celui ami
+//afficher notre mur ou celui ami
 $ok = false;
 
 if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){
@@ -14,15 +14,13 @@ if(!isset($_GET["id"]) || $_GET["id"]==$_SESSION["id"]){
 } else{
     $id = $_GET["id"];
     //verif si ami
-    $sql = "SELECT * FROM lien WHERE etat='ami' AND (idUtilisateur1=? AND idUtilisateur2=?)"; //manque peut etre un truc
+    $sql = "SELECT * FROM lien WHERE etat='ami' AND ((idUtilisateur1=? AND idUtilisateur2=?) OR (idUtilisateur1=? AND idUtilisateur2=?))"; //manque peut etre un truc
     $query = $pdo->prepare($sql);
-    $quey->execute(array($_GET["id"],$_SESSION["id"], $_SESSION["id"], $_GET['id']));
+    $query->execute(array($_GET["id"],$_SESSION["id"], $_SESSION["id"], $_GET['id']));
 		$line=$query->fetch();
 		if($line != false){
             $ok = true;
         }
-        // les deux ids à tester sont : $_GET["id"] et $_SESSION["id"]
-        // A completer. 
 }
 
 if($ok==false){
