@@ -11,7 +11,11 @@ $listeDesActions = array(
     "monMur" => "vues/monMur.php",
     "demandeAmi" => "traitement/demandeAmi.php",
     "supprPost" => "traitement/supprPost.php",
-    "nouvPost" => "traitement/nouvPost.php"
+    "nouvPost" => "traitement/nouvPost.php",
+    "accepter" => "traitement/accepter.php",
+    "refuser" => "traitement/refuser.php",
+    "annuler" => "traitement/annuler.php",
+    "supprAmi" => "traitement/supprAmi.php"
 );
 
 ?>

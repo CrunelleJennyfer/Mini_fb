@@ -173,14 +173,14 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                 $id = $_SESSION['id'];
                 $sql = "SELECT * FROM user 
                 WHERE id IN ( SELECT user.id FROM user INNER JOIN lien ON idUtilisateur1=user.id 
-                                AND etat='ami' AND idUTilisateur2=? UNION SELECT user.id FROM user 
+                                AND etat='ami' AND idUtilisateur2=? UNION SELECT user.id FROM user 
                                 INNER JOIN lien ON idUtilisateur2=user.id AND etat='ami' AND idUTilisateur1=?) 
-                order by user.login ASC";
+                                order by user.login ASC";
                 $query = $pdo->prepare($sql);
                 $query->execute(array($_SESSION["id"],$_SESSION["id"])); //2 $_SESSION["id"] c'est normal... sinon foncionne pas
                 while($line = $query->fetch()){
                     echo "<div class='boutDiv'>
-                                <a href='index.php?action=monMur&id".$line['id'].">".$line['login']."</a>
+                                <a href=index.php?action=monMur&id=".$line['id'].">".$line['login']."</a>
                                 <form action='index.php?action=supprAmi' method='POST'>
                                         <input type='hidden' name='id' value=".$line['id'].">
                                         <input type='submit' name='boutDel' value='Supprimer'>
@@ -214,7 +214,7 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                         <a href=index.php?action=mur&id=".$line['id'].">".$line['login']."</a>
                         <form action='index.php?action=accepter' method='post'>
                             <input type='hidden' name='id' value=".$line['id'].">
-                            <iput type='submit' class='buttonAccept' value='Accepter'>
+                            <input type='submit' class='buttonAccept' value='Accepter'>
                         </form>
                         
                         <form action='index.php?action=refuser' method='post'>
@@ -222,6 +222,26 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                             <input type='submit' class='buttonRefus' value='Refuser'>
                         </form>
                     </div> ";
+            }
+        ?>
+    </div>
+
+    <div> <!-- gestion demande amis en attente -->
+        <h1>En attente</h1>
+        <?php
+            $id=$_SESSION['id'];
+            $sql="SELECT user.* FROM user INNER JOIN lien ON user.id=idUtilisateur1 AND etat='attente'
+                AND idUtilisateur2=? order by user.login ASC";
+            $query=$pdo->prepare($sql);
+            $query->execute(array($_SESSION['id']));
+            while($line=$query->fetch()){
+                echo "<div>
+                        <a href=index.php?action=monMur&id=".$line['id'].">".$line['login']."</a>
+                        <form action='index.php?action=annuler' method='post'>
+                            <input type='hidden' name='id' value=".$line['id'].">
+                            <input type='submit' class='buttonAnnul' value='Annuler'>
+                        </form>
+                    </div>";
             }
         ?>
     </div>
