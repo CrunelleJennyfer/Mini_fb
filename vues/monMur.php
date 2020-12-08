@@ -1,4 +1,3 @@
-Ceci sera la page de ton profil plus tard, donc attend c'est en cour
 <?php
 //si pas co, return acceuil
 if(!isset($_SESSION["id"])){
@@ -43,7 +42,7 @@ if($ok==false){
     while($line = $query->fetch()){
         if($line['etat'] == 'attente'){
             $attente = true;
-            echo"<p>Tu l'a déjà demande en ami, arrête de spam...</p></br>";
+            echo"<p>Tu l'as déjà demande en ami, arrête de spam...</p></br>";
         }
     }
 

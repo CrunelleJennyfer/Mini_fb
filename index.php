@@ -17,7 +17,7 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KiwiOn</title>
 
-
+    <img class="logokiwiindex" src="img/KiwiOn%20blanc.png">
 
     <!-- Ma feuille de style à moi -->
     <link href="./css/style.css" rel="stylesheet">
