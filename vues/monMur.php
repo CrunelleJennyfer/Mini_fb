@@ -116,6 +116,7 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                     echo "<img id='pp' src='./img/Unknow.png' alt='Profil'>";
                 }
             }else{
+                
                 echo "<img id='pp' src='./img/Unknow.png' alt='Profil'>";
             }
             ?>
@@ -158,23 +159,33 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                     if(empty($line['image'])){
                         echo "<p class='sayTitre'><a href=index.php?action=monMur&id=".$line['id']."><strong>".$line['login']."</strong></a> a partagé sa pensée :</p>";
                         echo "<p class='sayContent'>".$line['contenu']."</p>";
-                        echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
 
                     }else{
                         echo "<p class='sayTitre'><a href=index.php?action=monMur&id=".$line['id']."><strong>".$line['login']."</strong></a> a partagé sa pensée :</p>";
                         echo "<p class='sayContent'>".$line['contenu']."</p>";
                         echo "<img src='./img/".$line['image']."' alt='imgImporté' height='100' width='100' /></br>";
-                        echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
+                        
                     }
                     
 
-                    //del mess
+                    //del mess et j'aime j'aime pas
                     if(($_SESSION['id'] == $line['idAuteur']) OR ($_SESSION['id'] == $line['idAmi'])){
                         echo "<form action='index.php?action=supprPost' method='POST'>
                                     <input type='hidden' name='id' value=".$line['idecrit'].">
                                     <input type='submit' class='boutSuppr' value='Supprimer'>
                             </form></div>";
+                            echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
                     }
+                    
+                    if($_SESSION['id'] != $line['idAuteur']){
+                        echo"<form action='index.php?action=aimePost' method='POST'>
+                                <input type='image' id='love' alt='love' src='./img/love.png' width='50' heigt='50'>
+                                <input type='image' id='nul' alt='hate' src='./img/hate.png' width='50' heigt='50'>
+                                <input type='image' id='aime' alt='like' src='./img/like.png' width='50' heigt='50'>
+                        </form>";
+                        echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
+                    }
+                    
                     echo "</br>";
                 }
                 ?>

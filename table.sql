@@ -42,7 +42,7 @@ CREATE TABLE `lien` (
     PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
-
 -- une donnée dans la table ecrit
+
 INSERT INTO `ecrit` (`id`, `titre`, `contenu`, `dateEcrit`, `image`, `idAuteur`, `idAmi`) VALUES
 (1, 'test', 'alors comment ca va', '2017-10-10 16:57:14', '', 1, 1);

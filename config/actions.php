@@ -15,7 +15,8 @@ $listeDesActions = array(
     "accepter" => "traitement/accepter.php",
     "refuser" => "traitement/refuser.php",
     "annuler" => "traitement/annuler.php",
-    "supprAmi" => "traitement/supprAmi.php"
+    "supprAmi" => "traitement/supprAmi.php",
+    "aimePost" => "traitement/aimePost.php"
 );
 
 ?>
