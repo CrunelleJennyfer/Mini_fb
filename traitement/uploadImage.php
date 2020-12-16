@@ -31,6 +31,7 @@ if(!$getimagesize = getimagesize($_FILES['avatar']['tmp_name'])) {
             //********************************
             if(move_uploaded_file($_FILES['avatar']['tmp_name'], $dossier . $dest_fichier)) {
                 $valid[] = "Image uploadé avec succés (<a href='".$dossier . $dest_fichier."'>Voir</a>)";
+
             }else {
                 $erreurs[] = "Impossible d'uploader le fichier.<br />Veuillez vérifier que le dossier ".$dossier ;
             }

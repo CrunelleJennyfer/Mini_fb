@@ -108,6 +108,10 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                 }
                 if($Pp!="notdid"){
                     echo "<img id='pp' src='$Pp' alt='Profil'>";
+                    $sql = "UPDATE user SET avatar ='".$Pp."'";
+                    $query = $pdo->prepare($sql);
+                    $query->execute();
+
                 }else{
                     echo "<img id='pp' src='./img/Unknow.png' alt='Profil'>";
                 }
