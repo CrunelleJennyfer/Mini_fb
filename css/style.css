@@ -1,45 +1,70 @@
 html {
-  font-size: 95.5%;
-  font-family: "Montserrat";  
-  background-color: #252c41;
-  color: white;
-}
-
-.logokiwiindex {
-    width: 700px;
-    height: 700px;
-    position: absolute;
-    padding-top: 100px;
-}
-
-header {
-    font-size: 2rem;
-    text-align: right;
-    padding-right: 300px;
-    padding-top: 200px;
-}
-
-ul {
-    text-align: right;
-    font-size: 1.5rem;
-    padding-right: 300px;
-}
-
-footer {
-    position:absolute;
-    bottom:0;
-    width:100%;
-}
-
-a {
+    font-size: 95.5%;
+    font-family: "Montserrat";  
+    background-color: #252c41;
     color: white;
 }
 
-form {
-    text-align: right;
-    font-size: 1.5rem;
-    padding-right: 300px;
+
+header {
+    font-size: 2rem;
+    text-align: center;
 }
+
+#logokiwiindex {
+    grid-area: logo;
+    width: 90%;
+}
+
+#logCrea{
+    grid-area: choix;
+}
+
+#coCrea {
+    margin-top: -60%;
+    grid-area: form;
+}
+
+.acceuil{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "logo choix"
+    "logo form";
+}
+
+.form{
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+label {
+    /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+    display: inline-block;
+    width: 7rem;
+    text-align: right;
+}
+
+#envoyer{
+    margin-top: 1rem;
+    margin-left: 7.1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+ul {
+    text-align: left;
+    font-size: 1.5rem;
+    list-style: none;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
 
 
 .a404 {

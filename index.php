@@ -17,7 +17,7 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KiwiOn</title>
 
-    <img class="logokiwiindex" src="img/KiwiOn%20blanc.png">
+    
 
     <!-- Ma feuille de style à moi -->
     <link href="./css/style.css" rel="stylesheet">
@@ -25,7 +25,7 @@ ob_start(); // Je démarre le buffer de sortie : les données à afficher sont s
     <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 
-<body>
+<body class="container">
 
 <?php
 if (isset($_SESSION['info'])) {
@@ -38,18 +38,25 @@ if (isset($_SESSION['info'])) {
 <header>
     <h3>Le super site à base de KIWI</h3>
 </header>
-<nav>
-    <ul>
-        <?php
-        if (isset($_SESSION['id'])) {
-            echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
-        } else {
-            echo "<li><a href='index.php?action=login'>Login</a></li>";
-            echo "<li><a href='index.php?action=creation'>Créer votre compte</a></li>";
-        }
-        ?>
-    </ul>
-</nav>
+
+<div class="acceuil">
+
+    <img id="logokiwiindex" src="img/Logo_kiwi_blanc.png">
+
+
+    <nav id="logCrea">
+        <ul>
+            <?php
+            if (isset($_SESSION['id'])) {
+                echo "<li>Bonjour " . $_SESSION['login'] . " <a href='index.php?action=deconnexion'>Deconnexion</a></li>";
+            } else {
+                echo "<li><a href='index.php?action=login'>Login</a></li>";
+                echo "<li><a href='index.php?action=creation'>Créer votre compte</a></li>";
+            }
+            ?>
+        </ul>
+    </nav>
+</div>
 
             <?php
             // Quelle est l'action à faire ?
@@ -70,6 +77,6 @@ if (isset($_SESSION['info'])) {
             ?>
 
 
-<footer>Le pied de page #pied #foot #footer #developpeur</footer>
+<footer></footer>
 </body>
 </html>

@@ -1,0 +1,155 @@
+html {
+    font-size: 95.5%;
+    font-family: "Montserrat";  
+    background-color: #252c41;
+    color: white;
+}
+
+.container{
+    color: #FFF;
+    margin: 0 auto;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    transition-duration: 0.5s;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+header {
+    font-size: 2rem;
+    text-align: center;
+    background-color: #f1404b;
+    padding-bottom: 0.5rem;
+}
+
+h3{
+    margin-top: 0;
+    padding-top: 1.5rem;
+    background-color: #f1404b;
+}
+
+#connexion>a:hover{
+    text-decoration: underline;
+}
+
+#logokiwiindex {
+    grid-area: logo;
+    width: 90%;
+}
+
+#logCrea{
+    grid-area: choix;
+}
+
+#coCrea {
+    margin-top: -60%;
+    grid-area: form;
+}
+
+.acceuil{
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "logo choix"
+    "logo form";
+}
+
+.form{
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+label {
+    /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+    display: inline-block;
+    width: 7rem;
+    text-align: right;
+}
+
+#envoyer{
+    margin-top: 1rem;
+    margin-left: 7.1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+ul {
+    text-align: left;
+    font-size: 1.5rem;
+    list-style: none;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.a404 {
+    font-size: 2rem;
+    padding-left: 700px;
+}
+
+.mvpic {
+    align-items: center;
+}
+.bonjour{
+    grid-area: bjr;
+}
+#pp{
+    width: 60%;
+}
+.deco{
+    grid-area: deco;
+}
+.mur{
+    grid-area: mur;
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+}
+#banniere{
+    width: 100%;
+}
+.chat{
+    grid-area: chat;
+    background-color: aliceblue;
+    color: black;
+    text-align: left;
+}
+.chat a{
+    color: black;
+}
+.submit{
+    grid-area: formPost;
+    background-color: aliceblue;
+    color: black;
+}
+.mid{
+    grid-area: gestAm;
+    text-align: center;
+}
+form#formMid{
+    margin-left: 2rem;
+}
+.ami{
+    grid-area: mesAmis;
+    text-align: center;
+}
+.monMur{
+    grid-area: monmur;
+}
+.gestAm{
+    grid-area: gestAm;
+    text-align: center;
+}
+
+.pageMur{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 
+    "bjr mur chercheAmi"
+    "deco formPost mesAmis"
+    "monmur chat gestAm";
+}
