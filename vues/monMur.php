@@ -129,7 +129,7 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                 <div><input type="submit" class="btn" value="envoyer" /></div>
                 <input type="hidden" value="b" name="env"/>
             </form>
-            <p id='connexion'> <a href='index.php?action=deconnexion'>Deconnexion</a></p>
+            <p id='connexion'><a href='index.php?action=deconnexion'>Deconnexion</a></p>
         </div>
 
         <div class="mur">

@@ -121,6 +121,9 @@ a {
 .chat a{
     color: black;
 }
+.chat p, .chat img, .chat input{
+    margin-left: 4rem;
+}
 .submit{
     grid-area: formPost;
     background-color: aliceblue;
