@@ -155,9 +155,18 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
                     if($line['idAuteur'] == $_SESSION['id']){
                         echo "<div class='message'>";
                     }
-                    echo "<p class='sayTitre'><a href=index.php?action=monMur&id=".$line['id']."><strong>".$line['login']."</strong></a> a partagé sa pensée :</p>";
-                    echo "<p class='sayContent'>".$line['contenu']."</p>";
-                    echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
+                    if(empty($line['image'])){
+                        echo "<p class='sayTitre'><a href=index.php?action=monMur&id=".$line['id']."><strong>".$line['login']."</strong></a> a partagé sa pensée :</p>";
+                        echo "<p class='sayContent'>".$line['contenu']."</p>";
+                        echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
+
+                    }else{
+                        echo "<p class='sayTitre'><a href=index.php?action=monMur&id=".$line['id']."><strong>".$line['login']."</strong></a> a partagé sa pensée :</p>";
+                        echo "<p class='sayContent'>".$line['contenu']."</p>";
+                        echo "<img src='./img/".$line['image']."' alt='imgImporté' height='100' width='100' /></br>";
+                        echo "<p class='sayDate'>".$line['dateEcrit']."</p>";
+                    }
+                    
 
                     //del mess
                     if(($_SESSION['id'] == $line['idAuteur']) OR ($_SESSION['id'] == $line['idAmi'])){
@@ -176,6 +185,7 @@ les 3 pitit trait horizontal sinon y sert a rien faut le virer -->
             <input type="hidden" name="ami" value='<?php echo $id; ?>'>
             <input type="hidden" name="titre">
             <input type="text" name="message" class="msg" placeholder="Ecrivez ici...">
+            <input type="file" name="importImg" id="importImg" />
             <input type="submit" name="poster" class="sub" value=">">
         </form>
 
